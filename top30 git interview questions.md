@@ -1,0 +1,151 @@
+- What is git?
+    - Version control system for tracking changes in files, and coordinate work among several ppl in project
+    - enables multiple users to work together
+- Version control system?
+    - system that records the changes to a file or set of data , so a specific version may be called later if needed
+- Git vs github?
+    - Git is a VCS, 
+    - Github - > git repository hosting service with web GUI, 
+- WHat is git repo?
+    - a place where all the git files are stored, either local or remote
+- How to initialize a repo in git?
+    - `git init` command
+- Name few git cmds with functions?
+    - `git config` - configure the username and email address
+    - `git add` - add one or more files to the staging area
+    - `git diff` - view changes made to a file
+    - `git commit` - commit changes to head but not to the remote repo
+- Advantages of git?
+    - Faster release cycles
+    - Easy team collaboration
+    - Widespread acceptance
+    - Maintains the integrity of sourcecode
+    - Pull requests
+- What language is used in git?
+    - `C` - reduces runtime
+- what is commit message and how to run it?
+    - `git commit -m`
+- Name some popular git hosting repositories?
+    - Github
+    - gitlab
+    - Bit bucket
+- Explain git push
+    - Used to push local repo to remote repo.so other users will be able to access it
+- Git pull
+    - fetch and merge changes from remote to local.
+    - it is a combination of two commands,
+        - git fetch
+        - git merge
+- Git fetch vs git pull
+    - git fetch 
+        - only downloads new data from remote
+        - does not integrate any of the new data into working files
+    - git pull
+        - updates the current HEAD branch from remote
+        - Download and integrate the new data with current working files
+        - tries to merge remote change to local
+- Merge conflict?
+    - is a event that takes place when git is unable to resolve differences in code between two commits automatically
+    - git is able to automatically merge the changes only  if the commits are on different lines or branches
+
+- How to resolve merge confilict
+    - edit the confilict file > git add and commit
+
+- Process to revert a commit
+    - Remove or fix the bad file in a new commit and push
+    - Create a new commit to undo all the changes that were made in the bad commit 
+        - `git revert <commit id>`
+- How is a bare repo diff from a standard way of initializing a git repo?
+    - Using standard way
+        - git init cmd
+        - a .git subfolder is created
+    - bare way
+        - does not contain any working or checked out a copy of source files
+        - store git revision heistory in root folder instead of .git
+
+- Git stash?
+    - if we want to switch branches to work on something else,If we dont want to commit the changes yet,use `git stash`
+    - Takes modified files and saves it on a stack of unfinished changes that can reapply at any time
+    - use `git stash pop`
+- `git reset --mixed vs git merge --abort`
+    - `git reset --mixed`
+        - undo changes made in working and staging area
+    - `git merge --abort` 
+        - helps stop the merge process and return back to state before merge began
+- how to find list of files that was changed in a particular commit?
+    - `git diff-tree -r {commit hash}
+    - -r flag allows the commands to list individual files commit hash lists all the files that were changed or added in the commit
+
+- Explain whe a merge can enter a conflicted stage?
+    - Starting the merge process
+        - if there are change in the working area , the merge will fail to start
+    - during merge
+        - confilict between two version of files
+
+- Diff FORK,BRANCH,CLONE
+    - fork
+        - when a copy of hte repo is made
+        - usually experimentation in project without affecting the original project
+        - used to advise changes aor take inspiration from someone elses project
+    - Branch
+        - individual projects within a git repo
+        - if there are several branches m each branch can have entirely different files and folders
+    - clone
+        - creating a clone or a copy of an existing git repo in a new directory
+- git merge vs git rebase?
+    - to incorporate new commits into your feature branch , use merge
+    - create an extra merge commit everytime we merge
+    - `rebase` incorporates all the new commit in the master branch
+    - rewrite the projrct hostory by creating brand new commit for each commit in the original branch
+
+- how to add files to previous commit?
+    - `git commit --amend` helps to combine the stages changes with previous commits instead of creating an entirely new commit
+
+- How is git remote diff from git clone?
+    - git remote 
+        - enables to create, view and delete connections to remote repos
+- git stash drop?
+    - drop a particular stash
+- if we recover a deleted branch what work is restored?
+    - files that were stashed and saved in the stash index can be recovered
+    - files that were untracked will be lost
+
+- revert vs resetting
+    - revert
+        - create a new commit that undoes the changes made in previous commit
+        - a new history is created
+    - resetting 
+        - used to undo the local changes that have been made to a git repo.Git reset operated on the following
+            - commit history
+            - staging index
+            - working directory
+
+- how to find if a branch is already merged or not?
+    - git branch --merged
+        - list of branched that have been merged into the current branch
+    - git branch --no-merged
+        - gives the list of branches that have not been merged
+
+- what is git cherry pick?
+    - `git cherry-pick` picks up commits from a branch within a repo and apply it to another branch
+    - usefuk to undo changes when any commit is accidently made to the wrong branch.
+    - we can switch to correct branch and use this command 
+    - `git cherry-pick <commit id>`
+- git log
+    - all the logs of push and  on a current branch
+    - `git log` or `git log <branch>`
+    - `git log --oneline`
+        - to get logs oneline at a time
+- `git remote -v` - will give what remote we are refering to 
+
+- SSh git clone
+    - we should have our public key
+    - `ssh-keygen -t rsa`
+        - will generate a new public/private key
+        - in a folder .ssh in home directory
+        - go to settings, gor to ssh gpg keys, we can add new ssh by copying from the file
+
+- difference between merge and rebase <h1>important</h1>
+    - in merge, the new changes will be at the top
+    - in rebase - the changes will be at the bottom
+        - all changes will come in linear way
